@@ -10,7 +10,7 @@ A lightweight HTML canvas framework with support for event forwarding and automa
 
 ## Example
 Run the example by installing the framework
-and the run `npm run example`.
+followed by `npm run example`.
 
 ## Usage  
 ```javascript

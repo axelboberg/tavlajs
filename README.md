@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" src="https://github.com/axelboberg/tavlajs/logo.png">
+  <img width="200" src="https://github.com/axelboberg/tavlajs/blob/master/logo.png?raw=true">
 </p>
 
 # Tavla  

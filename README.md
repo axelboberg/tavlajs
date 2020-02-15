@@ -1,8 +1,4 @@
-<p align="center">
-  <img width="200" src="https://github.com/axelboberg/tavlajs/blob/master/logo.png?raw=true">
-</p>
-
-# Tavla  
+# Tavla
 A lightweight HTML canvas framework with support for event forwarding and automatic adjustment for screen resolution.
 
 ## Installation
@@ -144,6 +140,14 @@ Similar to `view.on` but the handler will only be called once.
 Make a view draggable and enable its `drag`-event.  
 This **must** only be called once per view and **after** the view has been added as a child to another view.  
 *Tip! Listen for the `adopted` event which will be fired when the view has been given a parent.*
+
+### `Mask`
+---
+
+#### `Mask.make(view)`  
+Turn the view into a mask by setting the `ctx.globalCompositeOperation = 'destination-out'`.  
+This will make the view and its children mask any underlying views so that the background becomes visible.  
+Note that the view **must** have a fillColor or strokeColor in order to be a mask.
 
 ### `Rect`
 ---

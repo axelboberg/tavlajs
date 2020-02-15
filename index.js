@@ -75,6 +75,7 @@ module.exports = {
   'SVG': require('./lib/SVG'),
   'View': require('./lib/View'),
   'Rect': require('./lib/Rect'),
+  'Mask': require('./lib/Mask'),
   'Frame': require('./lib/Frame'),
   'Image': require('./lib/Image'),
   'EventBus': require('./lib/EventBus'),

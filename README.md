@@ -149,6 +149,13 @@ Turn the view into a mask by setting the `ctx.globalCompositeOperation = 'destin
 This will make the view and its children mask any underlying views so that the background becomes visible.  
 Note that the view **must** have a fillColor or strokeColor in order to be a mask.
 
+### `Clamp`
+---
+
+#### `Clamp.make(view, anchor)`  
+Clamp a view's coordinates to the coordinates of another view.
+The clamped view will follow the anchor view.
+
 ### `Rect`
 ---
 

@@ -76,6 +76,7 @@ module.exports = {
   'View': require('./lib/View'),
   'Rect': require('./lib/Rect'),
   'Mask': require('./lib/Mask'),
+  'Clamp': require('./lib/Clamp'),
   'Frame': require('./lib/Frame'),
   'Image': require('./lib/Image'),
   'EventBus': require('./lib/EventBus'),

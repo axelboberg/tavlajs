@@ -42,7 +42,3 @@ Allow the circle to
 be dragged around
 */
 Draggable.make(circle)
-
-Clamp.make(square, circle)
-setTimeout(() => Clamp.reset(square), 5000)
-setTimeout(() => Clamp.make(square, circle), 10000)

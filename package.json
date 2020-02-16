@@ -6,6 +6,10 @@
   "scripts": {
     "example": "webpack-dev-server --config webpack.example.js --open"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/axelboberg/tavlajs.git"
+  },
   "author": "Axel Boberg",
   "license": "MIT",
   "dependencies": {},

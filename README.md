@@ -156,6 +156,10 @@ Note that the view **must** have a fillColor or strokeColor in order to be a mas
 Clamp a view's coordinates to the coordinates of another view.
 The clamped view will follow the anchor view.
 
+#### `Clamp.reset(view)`  
+Undo a clamp.
+This will leave the view in place at its current position
+
 ### `Rect`
 ---
 

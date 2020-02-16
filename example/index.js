@@ -4,7 +4,7 @@
 
 const el = document.querySelector('canvas')
 
-const { Tavla, Rect, RoundRect, Draggable } = require('../index')
+const { Tavla, Rect, RoundRect, Draggable, Clamp } = require('../index')
 
 /*
 Create a new Tavla by
@@ -42,3 +42,7 @@ Allow the circle to
 be dragged around
 */
 Draggable.make(circle)
+
+Clamp.make(square, circle)
+setTimeout(() => Clamp.reset(square), 5000)
+setTimeout(() => Clamp.make(square, circle), 10000)

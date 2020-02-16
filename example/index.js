@@ -4,7 +4,7 @@
 
 const el = document.querySelector('canvas')
 
-const { Tavla, Rect, RoundRect, Draggable, Clamp } = require('../index')
+const { Tavla, Rect, RoundRect, Draggable } = require('../index')
 
 /*
 Create a new Tavla by

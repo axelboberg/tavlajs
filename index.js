@@ -16,7 +16,7 @@ class Tavla {
     this._ctx = el.getContext('2d')
 
     this._el = el
-    this._setupResolution(el)
+    this._setupResolution(el, opts.pixelRatio)
     this._attachListeners(el)
 
     this._root = new View(0, 0, this._el.width, this._el.height)
@@ -36,8 +36,8 @@ class Tavla {
    * Setup the canvas by scaling it
    * using the device's pixel ratio
    */
-  _setupResolution (el) {
-    const ratio = window.devicePixelRatio || 1
+  _setupResolution (el, pixelRatio = window.devicePixelRatio) {
+    const ratio = pixelRatio || 1
 
     el.width = el.width * ratio
     el.height = el.height * ratio

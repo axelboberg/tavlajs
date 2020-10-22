@@ -49,7 +49,8 @@ Creates a new instance of Tavla.
 **Options**
 ```javascript
 {
-  drawBoundingBoxes: Bool // Defaults to false
+  drawBoundingBoxes: Bool // Defaults to false,
+  pixelRatio: Number // Defaults to window.devicePixelRatio
 }
 ```
 

@@ -22,6 +22,10 @@ class Tavla {
     this._root = new View(0, 0, this._el.width, this._el.height)
     this._root.constructor._opts = opts
 
+    this.loop = opts.loop || !opts.hasOwnProperty('loop') ? true : false
+
+    this.draw = this.draw.bind(this)
+
     /*
     Start drawing frames
     */
@@ -55,11 +59,24 @@ class Tavla {
     el.style.transform = `scale(${1/ratio}, ${1/ratio})`
   }
 
+  /**
+   * Draw a single frame
+   */
+  draw () {
+    this._ctx.clearRect(0, 0, this._el.width, this._el.height)
+    this._root.draw(this._ctx)
+  }
+
+  /**
+   * Start the loop
+   * to draw frames
+   */
   _loop () {
     window.requestAnimationFrame(() => {
-      this._ctx.clearRect(0, 0, this._el.width, this._el.height)
-      this._root.draw(this._ctx)
-      this._loop()
+      this.draw()
+      if (this.loop) {
+        this._loop()
+      }
     })
   }
 

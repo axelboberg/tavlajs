@@ -49,14 +49,18 @@ Creates a new instance of Tavla.
 **Options**
 ```javascript
 {
-  drawBoundingBoxes: Bool // Defaults to false,
+  drawBoundingBoxes: Bool // Defaults to false
   pixelRatio: Number // Defaults to window.devicePixelRatio
+  loop: Bool // Whether to start a draw-loop or not, defaults to true
 }
 ```
 
 #### `tavla.root`
 *read-only*  
 An instance of `View`, use this to add your own views.
+
+#### `tavla.draw()`
+Manually trigger a draw of the current state.
 
 ### `View`
 ---

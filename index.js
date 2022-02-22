@@ -87,7 +87,7 @@ class Tavla {
   }
 }
 
-module.exports = {
+const lib = {
   'Tavla': Tavla,
   'SVG': require('./lib/SVG'),
   'View': require('./lib/View'),
@@ -99,4 +99,12 @@ module.exports = {
   'EventBus': require('./lib/EventBus'),
   'Draggable': require('./lib/Draggable'),
   'RoundRect': require('./lib/RoundRect')
+}
+
+if (module.parent) {
+  module.exports = lib
+}
+
+if (typeof window !== 'undefined') {
+  window.tavla = lib
 }

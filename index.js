@@ -82,7 +82,16 @@ class Tavla {
 
   _attachListeners (el) {
     for (let event of EVENTS) {
-      el.addEventListener(event, e => this._root._dispatch(event, e))
+      el.addEventListener(event, e => {
+        const bounds = this._el.getBoundingClientRect()
+        const normalized = {
+          ...e,
+          x: e.x - bounds.left,
+          y: e.y - bounds.top
+        }
+
+        this._root._dispatch(event, normalized)
+      })
     }
   }
 }

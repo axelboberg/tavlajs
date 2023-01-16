@@ -63,6 +63,7 @@ class Tavla {
    * Draw a single frame
    */
   draw () {
+    this._root._dispatch('willdraw')
     this._ctx.clearRect(0, 0, this._el.width, this._el.height)
     this._root.draw(this._ctx)
   }
@@ -107,6 +108,7 @@ const lib = {
   'Image': require('./lib/Image'),
   'EventBus': require('./lib/EventBus'),
   'Draggable': require('./lib/Draggable'),
+  'Resizable': require('./lib/Resizable'),
   'RoundRect': require('./lib/RoundRect')
 }
 

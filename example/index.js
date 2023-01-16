@@ -4,7 +4,7 @@
 
 const el = document.querySelector('canvas')
 
-const { Tavla, Rect, RoundRect, Draggable } = require('../index')
+const { Tavla, Rect, RoundRect, Draggable, Resizable } = require('../index')
 
 /*
 Create a new Tavla by
@@ -25,11 +25,15 @@ const circle = new RoundRect(100, 100, 150, 150)
 circle.fillColor = 'blue'
 circle.borderRadius = 75
 
+const rectangle = new Rect(150, 150, 150, 90)
+rectangle.fillColor = 'orange'
+
 /*
 Add the views to the tree
 */
 tavla.root.addChild(square)
 tavla.root.addChild(circle)
+tavla.root.addChild(rectangle)
 
 /*
 Show an alert when
@@ -42,3 +46,9 @@ Allow the circle to
 be dragged around
 */
 Draggable.make(circle)
+Draggable.make(rectangle)
+Resizable.make(rectangle, {
+  onSetupHandle: handle => {
+    handle.fillColor = 'blue'
+  }
+})

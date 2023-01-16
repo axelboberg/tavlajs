@@ -101,7 +101,7 @@ const lib = {
   'RoundRect': require('./lib/RoundRect')
 }
 
-if (module.parent) {
+if (typeof module !== 'undefined') {
   module.exports = lib
 }
 

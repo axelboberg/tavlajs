@@ -1,5 +1,12 @@
 /**
- * Axel Boberg © 2020
+ * @copyright Axel Boberg (c) 2024
+ * 
+ * @typedef {{
+ *  loop: Boolean,
+ *  isWorker: Boolean,
+ *  pixelRatio: Number,
+ *  drawBoundingBoxes: Boolean
+ * }} TavlaOpts
  */
 
 const View = require('./lib/View')
@@ -12,14 +19,36 @@ const EVENTS = [
 ]
 
 class Tavla {
-  constructor (el, opts = {}) {
-    this._ctx = el.getContext('2d')
+  /**
+   * @private
+   * @type { TavlaOpts }
+   */
+  _opts = {}
 
-    this._el = el
-    this._setupResolution(el, opts.pixelRatio)
-    this._attachListeners(el)
+  /**
+   * @param { HTMLCanvasElement | OffscreenCanvas } canvas 
+   * @param { TavlaOpts } opts 
+   */
+  constructor (canvas, opts = {}) {
+    this._ctx = canvas.getContext('2d')
 
-    this._root = new View(0, 0, this._el.width, this._el.height)
+    this._canvas = canvas
+
+    this._opts = opts
+
+    /*
+    Only setup the resolution if we're
+    running with a canvas in the DOM,
+    otherwise leave it as it is as
+    this is mostly for presentation
+    */
+    if (!opts.isWorker) {
+      this._setupResolution(canvas, opts.pixelRatio)
+    }
+
+    this._attachListeners(canvas)
+
+    this._root = new View(0, 0, this._canvas.width, this._canvas.height)
     this._root.constructor._opts = opts
 
     this.loop = opts.loop || !opts.hasOwnProperty('loop') ? true : false
@@ -40,11 +69,15 @@ class Tavla {
    * Setup the canvas by scaling it
    * using the device's pixel ratio
    */
-  _setupResolution (el, pixelRatio = window.devicePixelRatio) {
+  _setupResolution (canvas, pixelRatio = window.devicePixelRatio) {
     const ratio = pixelRatio || 1
 
-    el.width = el.width * ratio
-    el.height = el.height * ratio
+    canvas.width = canvas.width * ratio
+    canvas.height = canvas.height * ratio
+
+    if (ratio === 1) {
+      return
+    }
 
     /*
     Scale the context
@@ -55,8 +88,8 @@ class Tavla {
     Scale down the element to
     compensate for the upped resolution
     */
-    el.style.transformOrigin = 'top left'
-    el.style.transform = `scale(${1/ratio}, ${1/ratio})`
+    canvas.style.transformOrigin = 'top left'
+    canvas.style.transform = `scale(${1/ratio}, ${1/ratio})`
   }
 
   /**
@@ -64,7 +97,7 @@ class Tavla {
    */
   draw () {
     this._root._dispatch('willdraw')
-    this._ctx.clearRect(0, 0, this._el.width, this._el.height)
+    this._ctx.clearRect(0, 0, this._canvas.width, this._canvas.height)
     this._root.draw(this._ctx)
   }
 
@@ -73,7 +106,7 @@ class Tavla {
    * to draw frames
    */
   _loop () {
-    window.requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       this.draw()
       if (this.loop) {
         this._loop()
@@ -81,10 +114,10 @@ class Tavla {
     })
   }
 
-  _attachListeners (el) {
+  _attachListeners (canvas) {
     for (let event of EVENTS) {
-      el.addEventListener(event, e => {
-        const bounds = this._el.getBoundingClientRect()
+      canvas.addEventListener(event, e => {
+        const bounds = this._canvas.getBoundingClientRect()
         const normalized = {
           ...e,
           x: e.x - bounds.left,

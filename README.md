@@ -49,9 +49,10 @@ Creates a new instance of Tavla.
 **Options**
 ```javascript
 {
-  drawBoundingBoxes: Bool // Defaults to false
+  drawBoundingBoxes: Boolean // Defaults to false
   pixelRatio: Number // Defaults to window.devicePixelRatio
-  loop: Bool // Whether to start a draw-loop or not, defaults to true
+  isWorker: Boolean // Whether or not the script is running in a worker, if this is true Tavla will skip any DOM-specific logic
+  loop: Boolean // Whether to start a draw-loop or not, defaults to true
 }
 ```
 

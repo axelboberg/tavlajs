@@ -135,6 +135,7 @@ const lib = {
   'SVG': require('./lib/SVG'),
   'View': require('./lib/View'),
   'Rect': require('./lib/Rect'),
+  'Text': require('./lib/Text'),
   'Mask': require('./lib/Mask'),
   'Clamp': require('./lib/Clamp'),
   'Frame': require('./lib/Frame'),

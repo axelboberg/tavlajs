@@ -4,7 +4,7 @@
 
 const el = document.querySelector('canvas')
 
-const { Tavla, Rect, RoundRect, Draggable, Resizable } = require('../index')
+const { Text, Tavla, Rect, RoundRect, Draggable, Resizable } = require('../index')
 
 /*
 Create a new Tavla by
@@ -29,8 +29,15 @@ const rectangle = new Rect(150, 150, 150, 90)
 rectangle.fillColor = 'orange'
 
 /*
+Text
+*/
+const text = new Text('Hello world', 0, 0)
+text.fillColor = 'red'
+
+/*
 Add the views to the tree
 */
+tavla.root.addChild(text)
 tavla.root.addChild(square)
 tavla.root.addChild(circle)
 tavla.root.addChild(rectangle)

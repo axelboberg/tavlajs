@@ -234,6 +234,37 @@ Create a new SVG instance from an SVG-string.
 Change the SVG-source.
 The new source will be drawn on the next frame.
 
+### `Text`
+---
+
+Draw some text. Inherits from `View`.
+
+#### `new Text(text, x, y, fontSize, fontFamily)`
+Create a new Text instance.
+
+#### `text.text`
+The text node's text content
+
+#### `text.fontSize`
+The text node's font size.  
+Defaults to `16px`.
+
+#### `text.fontFamily`
+The text node's font family.  
+Defaults to `Helvetica`.
+
+#### `text.textAlign`
+The text node's alignment. One of `start`, `end`, `left`, `right` or `center`.  
+Defaults to `start`.
+
+#### `text.direction`
+The text node's direction. One of `ltr`, `rtl`, `inherit`.  
+Defaults to `inherit`.
+
+#### `text.textBaseline`
+The text node's baseline setting. One of `top`, `hanging`, `middle`, `alphabetic`, `ideographic` or `bottom`.  
+Defaults to `top`.
+
 ### `Frame`
 ---
 

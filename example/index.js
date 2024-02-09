@@ -22,8 +22,9 @@ square.fillColor = 'pink'
 A blue circle
 */
 const circle = new RoundRect(100, 100, 150, 150)
+circle.opacity = 0.4
 circle.fillColor = 'blue'
-circle.borderRadius = 75
+circle.borderRadius = [70, 10]
 
 const rectangle = new Rect(150, 150, 150, 90)
 rectangle.fillColor = 'orange'

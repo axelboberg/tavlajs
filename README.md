@@ -91,6 +91,9 @@ This returns the same thing as `view.frame.size`.
 #### `view.clipping`  
 A `boolean` indicating whether or not this view should be clipping its children, defaults to `false`.
 
+#### `view.opacity`  
+A numerical value between `0` and `1` determining the opacity with which the view will be drawn. Opacity will be accumulated downwards through the stack.  
+
 #### `view.root`
 *read-only*  
 Returns the topmost view that the view is a descendant of.

@@ -17,6 +17,11 @@ A pink square
 */
 const square = new Rect(10, 10, 200, 200)
 square.fillColor = 'pink'
+square.compositeOperation = 'destination-over'
+
+const square1 = new Rect(10, 10, 200, 200)
+square1.fillColor = 'red'
+square.addChild(square1)
 
 /*
 A blue circle

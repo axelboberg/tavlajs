@@ -92,7 +92,10 @@ This returns the same thing as `view.frame.size`.
 A `boolean` indicating whether or not this view should be clipping its children, defaults to `false`.
 
 #### `view.opacity`  
-A numerical value between `0` and `1` determining the opacity with which the view will be drawn. Opacity will be accumulated downwards through the stack.  
+A numerical value between `0` and `1` determining the opacity with which the view will be drawn. Opacity will be accumulated downwards through the stack.
+
+#### `view.compositeOperation`  
+Set the composite operation used when drawing the view's children, must be a value supported by the `ctx.globalCompositeOperation` property.
 
 #### `view.root`
 *read-only*  
